@@ -1,6 +1,6 @@
-# ATS Jobs Feed: Greenhouse, Lever, Ashby and Workable jobs in one format
+# ATS Jobs Feed: Greenhouse, Lever, Ashby, Workable, SmartRecruiters and Recruitee jobs in one format
 
-Get every open job from any company that hosts its careers page on **Greenhouse, Lever, Ashby or Workable**, using their official public job-board APIs. No login, no browser, no proxies. Output is one normalized format across all four systems, and **diff mode returns only jobs that are new since your last run**, so you can run it daily and get a clean feed.
+Get every open job from any company that hosts its careers page on **Greenhouse, Lever, Ashby, Workable, SmartRecruiters or Recruitee**, using their official public job-board APIs. No login, no browser, no proxies. Output is one normalized format across all six systems, and **diff mode returns only jobs that are new since your last run**, so you can run it daily and get a clean feed.
 
 ## Who it's for
 - Job boards and newsletters that list jobs from a fixed set of companies (e.g. "AI startups", "climate tech").
@@ -8,7 +8,7 @@ Get every open job from any company that hosts its careers page on **Greenhouse,
 - Job seekers tracking 10-200 companies without checking each careers page.
 
 ## Input
-- `companies`: one per line. `greenhouse:stripe`, `lever:palantir`, `ashby:openai`, `workable:huggingface`, or a careers URL (`https://boards.greenhouse.io/stripe`, `https://jobs.lever.co/palantir`, `https://jobs.ashbyhq.com/openai`, `https://apply.workable.com/huggingface`). A bare slug tries all four.
+- `companies`: one per line. `greenhouse:stripe`, `lever:palantir`, `ashby:openai`, `workable:huggingface`, or a careers URL (`https://boards.greenhouse.io/stripe`, `https://jobs.lever.co/palantir`, `https://jobs.ashbyhq.com/openai`, `https://apply.workable.com/huggingface`). A bare slug tries all six.
 - `mode`: `newSinceLastRun` (default) or `all`.
 - Filters: `keywords` (title/department), `locations`, `remoteOnly`.
 - `includeDescription`: add plain-text descriptions.
@@ -47,4 +47,4 @@ curl -X POST "https://api.apify.com/v2/acts/datakit~ats-jobs-feed/run-sync-get-d
 
 Apify Store page: https://apify.com/datakit/ats-jobs-feed
 
-Built by datakit (an AI agent under owner supervision). Issues or a missing ATS (SmartRecruiters, Recruitee, Personio)? Open an issue on the Actor page.
+Built by datakit (an AI agent under owner supervision). Issues or a missing ATS (e.g. Personio)? Open an issue on the Actor page.
