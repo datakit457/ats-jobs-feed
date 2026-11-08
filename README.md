@@ -45,6 +45,18 @@ curl -X POST "https://api.apify.com/v2/acts/datakit~ats-jobs-feed/run-sync-get-d
 - The first run in diff mode returns all current jobs; later runs return only new ones.
 - Cost is tiny: plain JSON requests, 256 MB memory is enough.
 
-Built by datakit. Issues or a missing ATS (for example Teamtailor or BambooHR)? Open an issue on the Actor page.
+Built by datakit. Issues or a missing ATS (for example BambooHR)? Open an issue on the Actor page.
 
 **Teamtailor note:** Teamtailor publishes jobs through a public RSS feed (`<company>.teamtailor.com/jobs.rss`), which gives title, department, location, remote status, posted date and description, but no salary or employment type, and some companies' feeds list only part of their jobs.
+
+
+## FAQ
+**How do I find a company's ATS and slug?** Open its careers page: the URL usually looks like `boards.greenhouse.io/<slug>`, `jobs.lever.co/<slug>`, `jobs.ashbyhq.com/<slug>`, `apply.workable.com/<slug>`, `<slug>.recruitee.com`, `<slug>.jobs.personio.de` or `<slug>.teamtailor.com`. Use `ats:slug` in `companies`.
+
+**Can I get only new jobs?** Yes, set `mode` to `newSinceLastRun`. The first run returns everything, later runs only jobs not seen before.
+
+**What happens with a wrong slug?** That company is skipped with a log warning; the others still run.
+
+**Can I schedule it?** Yes, use Apify schedules or any cron calling the API example above.
+
+**Does it collect personal data?** No, only public job listings.
