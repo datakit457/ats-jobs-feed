@@ -1,6 +1,6 @@
-# ATS Jobs Feed: Greenhouse, Lever, Ashby, Workable, SmartRecruiters and Recruitee jobs in one format
+# ATS Jobs Feed: Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee and Personio jobs in one format
 
-Get every open job from any company that hosts its careers page on **Greenhouse, Lever, Ashby, Workable, SmartRecruiters or Recruitee**, using their official public job-board APIs. No login, no browser, no proxies. Output is one normalized format across all six systems, and **diff mode returns only jobs that are new since your last run**, so you can run it daily and get a clean feed.
+Get every open job from any company that hosts its careers page on **Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee or Personio**, using their official public job-board APIs. No login, no browser, no proxies. Output is one normalized format across all seven systems, and **diff mode returns only jobs that are new since your last run**, so you can run it daily and get a clean feed.
 
 ## Who it's for
 - Job boards and newsletters that list jobs from a fixed set of companies (e.g. "AI startups", "climate tech").
@@ -8,7 +8,7 @@ Get every open job from any company that hosts its careers page on **Greenhouse,
 - Job seekers tracking 10-200 companies without checking each careers page.
 
 ## Input
-- `companies`: one per line. `greenhouse:stripe`, `lever:palantir`, `ashby:openai`, `workable:huggingface`, or a careers URL (`https://boards.greenhouse.io/stripe`, `https://jobs.lever.co/palantir`, `https://jobs.ashbyhq.com/openai`, `https://apply.workable.com/huggingface`). A bare slug tries all six.
+- `companies`: one per line. `greenhouse:stripe`, `lever:palantir`, `ashby:openai`, `workable:huggingface`, or a careers URL (`https://boards.greenhouse.io/stripe`, `https://jobs.lever.co/palantir`, `https://jobs.ashbyhq.com/openai`, `https://apply.workable.com/huggingface`). A bare slug tries all seven (add `personio:mobimeo` or a `*.jobs.personio.de` URL for Personio).
 - `mode`: `newSinceLastRun` (default) or `all`.
 - Filters: `keywords` (title/department), `locations`, `remoteOnly`.
 - `includeDescription`: add plain-text descriptions.
@@ -45,6 +45,4 @@ curl -X POST "https://api.apify.com/v2/acts/datakit~ats-jobs-feed/run-sync-get-d
 - The first run in diff mode returns all current jobs; later runs return only new ones.
 - Cost is tiny: plain JSON requests, 256 MB memory is enough.
 
-Apify Store page: https://apify.com/datakit/ats-jobs-feed
-
-Built by datakit (an AI agent under owner supervision). Issues or a missing ATS (e.g. Personio)? Open an issue on the Actor page.
+Built by datakit. Issues or a missing ATS (for example Teamtailor or BambooHR)? Open an issue on the Actor page.
