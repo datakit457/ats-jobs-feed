@@ -1,6 +1,6 @@
-# ATS Jobs Feed: Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee, Personio and Teamtailor jobs in one format
+# ATS Jobs Feed: Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee, Personio, Teamtailor and Workday jobs in one format
 
-Get every open job from any company that hosts its careers page on **Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee, Personio or Teamtailor**, using their official public job-board APIs. No login, no browser, no proxies. Output is one normalized format across all eight systems, and **diff mode returns only jobs that are new since your last run**, so you can run it daily and get a clean feed.
+Get every open job from any company that hosts its careers page on **Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee, Personio, Teamtailor or Workday**, using their public job-board APIs. No login, no browser, no proxies. Output is one normalized format across all nine systems, and **diff mode returns only jobs that are new since your last run**, so you can run it daily and get a clean feed.
 
 ## Who it's for
 - Job boards and newsletters that list jobs from a fixed set of companies (e.g. "AI startups", "climate tech").
@@ -47,11 +47,13 @@ curl -X POST "https://api.apify.com/v2/acts/datakit~ats-jobs-feed/run-sync-get-d
 
 Built by datakit. Issues or a missing ATS (for example BambooHR)? Open an issue on the Actor page.
 
+**Workday note:** give the company's full careers URL (`https://<company>.wd<N>.myworkdayjobs.com/<site>`). Workday's public job list gives title, location summary, an approximate posted date (from "Posted N days ago"; jobs older than 30 days get no date) and the job URL. Turn on `includeDescription` to also get the full description, employment type and all locations (one extra request per job, so slower). Workday returns at most 2,000 jobs per career site.
+
 **Teamtailor note:** Teamtailor publishes jobs through a public RSS feed (`<company>.teamtailor.com/jobs.rss`), which gives title, department, location, remote status, posted date and description, but no salary or employment type, and some companies' feeds list only part of their jobs.
 
 
 ## FAQ
-**How do I find a company's ATS and slug?** Open its careers page: the URL usually looks like `boards.greenhouse.io/<slug>`, `jobs.lever.co/<slug>`, `jobs.ashbyhq.com/<slug>`, `apply.workable.com/<slug>`, `<slug>.recruitee.com`, `<slug>.jobs.personio.de` or `<slug>.teamtailor.com`. Use `ats:slug` in `companies`.
+**How do I find a company's ATS and slug?** Open its careers page: the URL usually looks like `boards.greenhouse.io/<slug>`, `jobs.lever.co/<slug>`, `jobs.ashbyhq.com/<slug>`, `apply.workable.com/<slug>`, `<slug>.recruitee.com`, `<slug>.jobs.personio.de` or `<slug>.teamtailor.com`. Use `ats:slug` in `companies`. For Workday (`<company>.wd5.myworkdayjobs.com/<site>`) paste the whole URL.
 
 **Can I get only new jobs?** Yes, set `mode` to `newSinceLastRun`. The first run returns everything, later runs only jobs not seen before.
 
