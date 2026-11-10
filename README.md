@@ -7,6 +7,13 @@ Get every open job from any company that hosts its careers page on **Greenhouse,
 - Recruiters and sales teams watching hiring signals at target accounts.
 - Job seekers tracking 10-200 companies without checking each careers page.
 
+## No slugs? Search the built-in startup directory
+Set `directory` to `startups` and the Actor scans the job boards of 650+ tech companies (Y Combinator alumni and well-known tech firms on Greenhouse, Lever, Ashby and Workable, verified November 2026). Combine with `keywords`, `locations`, `remoteOnly`, and `directoryIndustries` (e.g. `Fintech`).
+
+```json
+{"directory": "startups", "keywords": ["data engineer"], "locations": ["london", "remote"], "mode": "newSinceLastRun"}
+```
+
 ## Input
 - `companies`: one per line. `greenhouse:stripe`, `lever:palantir`, `ashby:openai`, `workable:huggingface`, or a careers URL (`https://boards.greenhouse.io/stripe`, `https://jobs.lever.co/palantir`, `https://jobs.ashbyhq.com/openai`, `https://apply.workable.com/huggingface`). A bare slug tries all eight (add `personio:mobimeo` or a `*.jobs.personio.de` URL for Personio).
 - `mode`: `newSinceLastRun` (default) or `all`.
