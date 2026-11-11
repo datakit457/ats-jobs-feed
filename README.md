@@ -8,7 +8,7 @@ Get every open job from any company that hosts its careers page on **Greenhouse,
 - Job seekers tracking 10-200 companies without checking each careers page.
 
 ## No slugs? Search the built-in startup directory
-Set `directory` to `startups` and the Actor scans the job boards of 650+ tech companies (Y Combinator alumni and well-known tech firms on Greenhouse, Lever, Ashby and Workable, verified November 2026). Combine with `keywords`, `locations`, `remoteOnly`, and `directoryIndustries` (e.g. `Fintech`).
+Set `directory` to `startups` and the Actor scans the job boards of 800+ tech companies (Y Combinator alumni and well-known tech firms on Greenhouse, Lever, Ashby and Workable, verified November 2026). Combine with `keywords`, `locations`, `remoteOnly`, and `directoryIndustries` (e.g. `Fintech`).
 
 ```json
 {"directory": "startups", "keywords": ["data engineer"], "locations": ["london", "remote"], "mode": "newSinceLastRun"}
